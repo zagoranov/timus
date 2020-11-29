@@ -1,1 +1,1 @@
-Задачки из timus.ru
+Small tasks from timus.ru
