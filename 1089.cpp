@@ -15,9 +15,9 @@ std::vector<std::string> vocabulary{"country",
 "about",
 "world"};
 
-std::string s_to_check {"the rushia is the larjest cauntry in the vorld. it ockupies abaut one-seventh of the earth's surfase. it kovers the eastern park of yurope and the northern park of asia."};
+std::string text_to_check {"the rushia is the larjest cauntry in the vorld. it ockupies abaut one-seventh of the earth's surfase. it kovers the eastern park of yurope and the northern park of asia."};
 
-size_t compare(std::string& s1, const std::string& original) {
+size_t compareWords(std::string& s1, const std::string& original) {
     size_t dif{0};
     if(s1.size() != original.size())
         return 2;
@@ -28,18 +28,16 @@ size_t compare(std::string& s1, const std::string& original) {
     return dif;
 }
 
-std::string find_word(std::string& word) {
+std::string findWord(std::string& word) {
     for(const std::string& s : vocabulary) {
-        if(compare(word, s) == 1) {
+        if(compareWords(word, s) == 1) {
             return s; 
         }
     }
     return "";
 }
 
-
-int main() {
-    std::cout << "Text to check: \n" << s_to_check << '\n';
+std::string checkText(const std::string& s_to_check) {
     std::string s_res, replacement;
     size_t ind{0}, found{0};
     while(ind < (s_to_check.size() - 1)) {
@@ -53,18 +51,23 @@ int main() {
             continue;
         }
         std::string target_word = s_to_check.substr(ind, found - ind);
-        //std::cout << "Searching for replacement for: " << target_word << ", index: " << ind << ", found: " << found << '\n';
-        std::string replacement = find_word(target_word);
+        std::cout << "Searching for replacement for: " << target_word << ", index: " << ind << ", found: " << found << '\n';
         if(ind > 0)
             s_res += s_to_check[ind-1]; 
+        std::string replacement = findWord(target_word);
         if(replacement != "") {
             s_res += replacement;
-            //std::cout << "Found replacement: " << replacement << "\n";
+            std::cout << "Found replacement: " << replacement << "\n";
         }
         else 
             s_res += target_word;
         ind = (found + 1);
-    }
-    
-    std::cout << "Result: \n" << s_res << '\n';
+    }    return s_res;
+}
+
+
+int main() {
+    std::cout << "Text to check: \n" << text_to_check << "\n\n";
+    std::string res = checkText(text_to_check);
+    std::cout << "\nResult: \n" << res << '\n';
 }
