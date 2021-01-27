@@ -17,3 +17,9 @@ void no_spaces(std::string& s) {
     }
     s.resize(s.size() - ind);
 }
+        
+int main() {  
+  std::string s = "   sada dsdsda";
+  no_spaces(s);
+  std::cout << s << "\n";
+}
