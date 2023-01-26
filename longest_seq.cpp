@@ -26,5 +26,5 @@ int main() {
         i = j;
     } while (++i < sz);
 
-    std::cout << "Longest incremental sequence starts at: " << max_i << " and length is    ыевЖЖсщге ±± ЭДщтпуые штскуьутефд ыуйгутсу ыефкеы феЖ @ ±± ьфч_ш ±± @ фтв дутпер шыЖ @ ±± ьфч_стеж: " << max_cnt;
+    std::cout << "Longest incremental sequence starts at: " << max_i << " and its length is: " << max_cnt;
 }
