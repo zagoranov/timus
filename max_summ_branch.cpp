@@ -8,10 +8,10 @@ struct Node {
     Node(int value_, std::shared_ptr<Node> left_, std::shared_ptr<Node> right_) : 
     value(value_), left(left_), right(right_) {}
     
-    int value;static_assert
+    int value;
     std::shared_ptr<Node> left, right;
 };
-static_assert
+
 int goThruTree(std::shared_ptr<Node> N) {
     int leftsumm{}, rightsumm{};
     if (N->left)
