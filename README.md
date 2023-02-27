@@ -1,1 +1,1 @@
-Small tasks from timus.ru
+Small tasks from acm.timus.ru, leetcode.com, etc 
